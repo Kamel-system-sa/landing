@@ -128,11 +128,13 @@ function getNestedProperty(obj, path) {
 function initializeMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
     const menuIcon = document.getElementById('menuIcon');
     const closeIcon = document.getElementById('closeIcon');
     
     if (!mobileMenuToggle || !mobileMenu) return;
     
+    // Open menu
     mobileMenuToggle.addEventListener('click', function() {
         const isOpen = !mobileMenu.classList.contains('hidden');
         
@@ -141,21 +143,34 @@ function initializeMobileMenu() {
             mobileMenu.classList.add('hidden');
             menuIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');
+            document.body.style.overflow = '';
         } else {
             // Open menu
             mobileMenu.classList.remove('hidden');
             menuIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
         }
     });
     
+    // Close button
+    if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    }
+    
     // Close menu when clicking on a link
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenu.classList.add('hidden');
             menuIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');
+            document.body.style.overflow = '';
         });
     });
 }

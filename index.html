@@ -124,19 +124,31 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu - Full Screen Overlay -->
-            <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-50 pt-20">
-                <div class="container mx-auto px-6 py-8">
-                    <div class="flex flex-col space-y-6">
-                        <a href="#leadership" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.about">About</a>
-                        <a href="#features" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.platform">Platform</a>
-                        <a href="#solutions" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.solutions">Solutions</a>
-                        <a href="#pricing" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.pricing">Pricing</a>
-                        <a href="#contact" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.contact">Contact</a>
-                        <div class="pt-6">
-                            <a href="#contact" class="block w-full px-8 py-4 bg-gradient-to-r from-brand-teal to-brand-teal-light text-white font-bold rounded-xl text-center shadow-lg text-lg" data-i18n="nav.cta">Schedule a Demo</a>
+            <!-- Mobile Menu - Fixed Full Screen Overlay -->
+            <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[60] animate-fade-in">
+                <!-- Close Button -->
+                <div class="absolute top-6 right-6 rtl:left-6 rtl:right-auto">
+                    <button id="closeMobileMenu" class="text-brand-charcoal hover:text-brand-teal p-2">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Menu Content -->
+                <div class="flex flex-col items-center justify-center h-full px-6">
+                    <nav class="flex flex-col items-center space-y-8 w-full max-w-md">
+                        <a href="#leadership" class="mobile-menu-link text-3xl font-bold text-brand-charcoal hover:text-brand-teal transition-all duration-300 transform hover:scale-105" data-i18n="nav.about">About</a>
+                        <a href="#features" class="mobile-menu-link text-3xl font-bold text-brand-charcoal hover:text-brand-teal transition-all duration-300 transform hover:scale-105" data-i18n="nav.platform">Platform</a>
+                        <a href="#solutions" class="mobile-menu-link text-3xl font-bold text-brand-charcoal hover:text-brand-teal transition-all duration-300 transform hover:scale-105" data-i18n="nav.solutions">Solutions</a>
+                        <a href="#pricing" class="mobile-menu-link text-3xl font-bold text-brand-charcoal hover:text-brand-teal transition-all duration-300 transform hover:scale-105" data-i18n="nav.pricing">Pricing</a>
+                        <a href="#contact" class="mobile-menu-link text-3xl font-bold text-brand-charcoal hover:text-brand-teal transition-all duration-300 transform hover:scale-105" data-i18n="nav.contact">Contact</a>
+                        
+                        <!-- Mobile CTA -->
+                        <div class="pt-8 w-full">
+                            <a href="#contact" class="mobile-menu-link block w-full px-10 py-5 bg-gradient-to-r from-brand-teal to-brand-teal-light text-white font-bold rounded-2xl text-center shadow-xl text-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all" data-i18n="nav.cta">Schedule a Demo</a>
                         </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </nav>
