@@ -40,6 +40,17 @@ const content = {
             subtitle: "Working with the Best in the Industry",
             addInfo: "Want to add your partner logos? Replace placeholders in the HTML with actual logo images."
         },
+        videoDemo: {
+            tag: "See It In Action",
+            title: "Watch How Kamel Transforms Operations",
+            subtitle: "See how leading operators are using Kamel to streamline their Hajj operations and deliver exceptional service",
+            placeholderTitle: "Platform Demo Video",
+            placeholderDuration: "3:45 minutes",
+            instruction: "Add your demo video URL in HTML",
+            benefit1: "Quick overview of all features",
+            benefit2: "Real operator success stories",
+            benefit3: "See the platform in action"
+        },
         features: {
             tag: "Platform Capabilities",
             title: "Everything You Need in One Platform",
@@ -107,6 +118,10 @@ const content = {
             tag: "Investment in Excellence",
             title: "Scale At Your Pace",
             subtitle: "Transparent, value-driven packages designed to grow with your operations—from boutique operators to enterprise-scale organizations",
+            urgencyTitle: "Limited Availability for 2025 Hajj Season",
+            urgencyText: "Secure your spot now. Only 50 operators remaining for our Professional tier to ensure premium service quality.",
+            spotsLeft: "50",
+            spotsLabel: "Spots Left",
             popularBadge: "Recommended for Most",
             plan2Name: "Professional",
             plan2Desc: "For growing Hajj operators ready to scale operations and enhance service delivery",
@@ -161,6 +176,10 @@ const content = {
             companyPlaceholder: "Your company name",
             messageLabel: "Message",
             messagePlaceholder: "Tell us about your needs...",
+            privacyText: "I agree to the",
+            privacyLink: "Privacy Policy",
+            privacyAnd: "and",
+            termsLink: "Terms of Service",
             submitButton: "Send Message",
             successMessage: "Thank you! We'll get back to you shortly.",
             errorMessage: "Something went wrong. Please try again."
@@ -181,6 +200,18 @@ const content = {
             privacy: "Privacy Policy",
             terms: "Terms of Service",
             copyright: "© 2024 Kamel. All rights reserved."
+        },
+        exitIntent: {
+            title: "Wait! Before You Go...",
+            description: "Get exclusive insights on optimizing your Hajj operations. Join 500+ operators receiving our monthly tips and industry updates.",
+            emailPlaceholder: "Enter your email",
+            submitButton: "Get Free Guide",
+            privacy: "We respect your privacy. Unsubscribe anytime.",
+            benefit1: "Industry Insights",
+            benefit2: "Best Practices",
+            benefit3: "Exclusive Offers",
+            successTitle: "Thank You!",
+            successMessage: "Check your email for your free guide and exclusive insights."
         }
     },
     ar: {
@@ -222,6 +253,17 @@ const content = {
             title: "شراكات موثوقة",
             subtitle: "نعمل مع الأفضل في الصناعة",
             addInfo: "الشعارات"
+        },
+        videoDemo: {
+            tag: "شاهده عمليًا",
+            title: "شاهد كيف يحول كامل العمليات",
+            subtitle: "اطلع على كيفية استخدام كبار المشغلين لكامل لتبسيط عمليات الحج وتقديم خدمة استثنائية",
+            placeholderTitle: "فيديو توضيحي للمنصة",
+            placeholderDuration: "3:45 دقيقة",
+            instruction: "أضف رابط الفيديو التوضيحي في HTML",
+            benefit1: "نظرة عامة سريعة على جميع الميزات",
+            benefit2: "قصص نجاح حقيقية للمشغلين",
+            benefit3: "شاهد المنصة أثناء العمل"
         },
         features: {
             tag: "قدرات المنصة",
@@ -290,6 +332,10 @@ const content = {
             tag: "الاستثمار في التميز",
             title: "التوسع بالوتيرة التي تناسبك",
             subtitle: "حزم شفافة قائمة على القيمة مصممة للنمو مع عملياتك—من المشغلين المتخصصين إلى المؤسسات واسعة النطاق",
+            urgencyTitle: "توفر محدود لموسم حج 2025",
+            urgencyText: "احجز مكانك الآن. بقي 50 مشغلًا فقط في المستوى الاحترافي لضمان جودة الخدمة المميزة.",
+            spotsLeft: "50",
+            spotsLabel: "مكان متبقي",
             popularBadge: "موصى به للأغلبية",
             plan2Name: "المحترف",
             plan2Desc: "لمشغلي الحج المتنامين المستعدين لتوسيع العمليات وتحسين تقديم الخدمات",
@@ -344,6 +390,10 @@ const content = {
             companyPlaceholder: "اسم شركتك",
             messageLabel: "الرسالة",
             messagePlaceholder: "أخبرنا عن احتياجاتك...",
+            privacyText: "أوافق على",
+            privacyLink: "سياسة الخصوصية",
+            privacyAnd: "و",
+            termsLink: "شروط الخدمة",
             submitButton: "إرسال الرسالة",
             successMessage: "شكراً لك! سنعاود الاتصال بك قريباً.",
             errorMessage: "حدث خطأ ما. يرجى المحاولة مرة أخرى."
@@ -364,6 +414,18 @@ const content = {
             privacy: "سياسة الخصوصية",
             terms: "شروط الخدمة",
             copyright: "© 2024 كامل. جميع الحقوق محفوظة."
+        },
+        exitIntent: {
+            title: "انتظر! قبل أن تغادر...",
+            description: "احصل على رؤى حصرية لتحسين عمليات الحج الخاصة بك. انضم إلى أكثر من 500 مشغل يتلقون نصائحنا الشهرية وتحديثات الصناعة.",
+            emailPlaceholder: "أدخل بريدك الإلكتروني",
+            submitButton: "احصل على الدليل المجاني",
+            privacy: "نحن نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت.",
+            benefit1: "رؤى الصناعة",
+            benefit2: "أفضل الممارسات",
+            benefit3: "عروض حصرية",
+            successTitle: "شكراً لك!",
+            successMessage: "تحقق من بريدك الإلكتروني للحصول على دليلك المجاني ورؤى حصرية."
         }
     }
 };

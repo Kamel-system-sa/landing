@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kamel Logo Favicon - Kaaba-inspired design with modern touch -->
+  <rect width="64" height="64" rx="12" fill="#006B6D"/>
+  
+  <!-- Geometric Kaaba representation -->
+  <g transform="translate(12, 16)">
+    <!-- Front face -->
+    <path d="M20 8 L20 32 L5 24 L5 0 Z" fill="#D4AF37" opacity="0.9"/>
+    <!-- Right face -->
+    <path d="M20 8 L35 0 L35 24 L20 32 Z" fill="#FFD700" opacity="0.8"/>
+    <!-- Top face -->
+    <path d="M5 0 L20 8 L35 0 L20 -8 Z" fill="#E4BF47"/>
+    
+    <!-- Decorative band (Kiswa-inspired) -->
+    <rect x="5" y="12" width="30" height="3" fill="#1A2332" opacity="0.3"/>
+    
+    <!-- Gold accent stripe -->
+    <rect x="5" y="13" width="30" height="1" fill="#FFD700"/>
+  </g>
+  
+  <!-- Subtle pattern overlay -->
+  <circle cx="48" cy="16" r="2" fill="#FFD700" opacity="0.3"/>
+  <circle cx="16" cy="48" r="2" fill="#FFD700" opacity="0.3"/>
+</svg>
+

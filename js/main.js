@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeStickyHeader();
     initializeBackToTop();
+    initializeVideoModal();
+    initializeFeatureModals();
+    initializeScrollProgress();
+    initializeAnimatedStats();
+    initializeFAQSearch();
     updateLanguageToggleButtons();
 });
 
@@ -272,6 +277,21 @@ function initializeStickyHeader() {
 // Contact Form Handling
 // ========================================
 
+// ========================================
+// FORM CONFIGURATION
+// ========================================
+// To enable form submissions, you need a Web3Forms API key (free):
+// 1. Visit: https://web3forms.com/
+// 2. Sign up for a free account
+// 3. Get your access key
+// 4. Replace 'YOUR_WEB3FORMS_ACCESS_KEY' below with your actual key
+// 
+// Alternative form services you can use:
+// - Formspree: https://formspree.io/
+// - Getform: https://getform.io/
+// - EmailJS: https://www.emailjs.com/
+const FORM_API_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
 function initializeContactForm() {
     const form = document.getElementById('contactForm');
     
@@ -280,6 +300,28 @@ function initializeContactForm() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        // Validate API key is configured
+        if (FORM_API_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+            showFormMessage('error', 
+                currentLang === 'ar' 
+                    ? 'خطأ في الإعداد: يرجى تكوين مفتاح API في js/main.js'
+                    : 'Configuration Error: Please configure the API key in js/main.js'
+            );
+            console.error('⚠️  FORM ERROR: Web3Forms API key not configured. See instructions in js/main.js');
+            return;
+        }
+        
+        // Check privacy checkbox
+        const privacyCheckbox = form.querySelector('#privacy');
+        if (privacyCheckbox && !privacyCheckbox.checked) {
+            showFormMessage('error', 
+                currentLang === 'ar' 
+                    ? 'يرجى الموافقة على سياسة الخصوصية'
+                    : 'Please agree to the Privacy Policy'
+            );
+            return;
+        }
+        
         // Get form data
         const formData = new FormData(form);
         const data = {
@@ -287,14 +329,14 @@ function initializeContactForm() {
             email: formData.get('email'),
             company: formData.get('company'),
             message: formData.get('message'),
-            // Add Web3Forms access key (user needs to replace this)
-            access_key: 'YOUR_WEB3FORMS_ACCESS_KEY' // User should replace this
+            access_key: FORM_API_KEY
         };
         
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
         submitButton.disabled = true;
+        submitButton.classList.add('loading');
         submitButton.textContent = currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
         
         try {
@@ -322,6 +364,7 @@ function initializeContactForm() {
         } finally {
             // Reset button
             submitButton.disabled = false;
+            submitButton.classList.remove('loading');
             submitButton.textContent = originalButtonText;
         }
     });
@@ -534,6 +577,215 @@ function initializeBackToTop() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+}
+
+// ========================================
+// Feature Detail Modals
+// ========================================
+
+function initializeFeatureModals() {
+    const featureButtons = document.querySelectorAll('.feature-detail-btn, a[href="#"]');
+    const featureModal = document.getElementById('featureModal');
+    const closeModalBtn = document.getElementById('closeFeatureModal');
+    
+    if (!featureModal) return;
+    
+    // Feature detail content (could be moved to content.js for i18n)
+    const featureDetails = {
+        1: {
+            title: "Operations Hub - Complete Control",
+            description: "Your central command center for all Hajj operations, providing real-time visibility and control over every aspect of your service delivery.",
+            features: [
+                "Real-time dashboard with customizable widgets",
+                "Automated workflow management and task assignment",
+                "Multi-location support with synchronized data",
+                "Role-based access control for team members",
+                "Comprehensive audit trails and activity logs",
+                "Integration with existing systems via API"
+            ]
+        }
+        // Add more features as needed
+    };
+    
+    featureButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            featureModal.classList.remove('hidden');
+            featureModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    function closeModal() {
+        featureModal.classList.add('hidden');
+        featureModal.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+    
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    featureModal.addEventListener('click', function(e) {
+        if (e.target === featureModal) closeModal();
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !featureModal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+}
+
+// ========================================
+// Scroll Progress Indicator
+// ========================================
+
+function initializeScrollProgress() {
+    // Create progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.id = 'scrollProgress';
+    progressBar.className = 'fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-teal to-brand-gold z-[60] transition-all duration-300';
+    progressBar.style.width = '0%';
+    document.body.appendChild(progressBar);
+    
+    // Update progress on scroll
+    window.addEventListener('scroll', function() {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / scrollHeight) * 100;
+        progressBar.style.width = Math.min(progress, 100) + '%';
+    });
+}
+
+// ========================================
+// Animated Stats Counter
+// ========================================
+
+function initializeAnimatedStats() {
+    const stats = document.querySelectorAll('[data-stat-value]');
+    
+    if (stats.length === 0) return;
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                animateValue(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    stats.forEach(stat => observer.observe(stat));
+}
+
+function animateValue(element) {
+    const targetValue = element.getAttribute('data-stat-value');
+    const duration = 2000; // 2 seconds
+    const start = 0;
+    const end = parseInt(targetValue.replace(/\D/g, ''));
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (easeOutCubic)
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (end - start) * easeProgress);
+        
+        element.textContent = targetValue.includes('+') ? current + '+' : current;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = targetValue;
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+// ========================================
+// FAQ Search
+// ========================================
+
+function initializeFAQSearch() {
+    // Create search input (will be added via HTML in advanced enhancements)
+    const searchInput = document.getElementById('faqSearch');
+    if (!searchInput) return;
+    
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-toggle').textContent.toLowerCase();
+            const answer = item.querySelector('.faq-content').textContent.toLowerCase();
+            
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+}
+
+// ========================================
+// Video Modal
+// ========================================
+
+function initializeVideoModal() {
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    const videoModal = document.getElementById('videoModal');
+    const closeVideoModal = document.getElementById('closeVideoModal');
+    
+    if (!videoPlaceholder || !videoModal) return;
+    
+    // Open modal
+    videoPlaceholder.addEventListener('click', function() {
+        videoModal.classList.remove('hidden');
+        videoModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        
+        // If you have a real video embed, you can start playing here
+        // Example: document.querySelector('#videoEmbed iframe').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    });
+    
+    // Close modal
+    function closeModal() {
+        videoModal.classList.add('hidden');
+        videoModal.classList.remove('flex');
+        document.body.style.overflow = '';
+        
+        // Stop video if playing
+        // Example: document.querySelector('#videoEmbed iframe').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    }
+    
+    if (closeVideoModal) {
+        closeVideoModal.addEventListener('click', closeModal);
+    }
+    
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+    
+    // Close on backdrop click
+    videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) {
+            closeModal();
+        }
     });
 }
 

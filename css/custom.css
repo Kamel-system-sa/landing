@@ -436,7 +436,7 @@ input[type="radio"] {
 .loading {
     position: relative;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .loading::after {
@@ -457,6 +457,110 @@ input[type="radio"] {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Enhanced button loading states */
+button.loading,
+.btn.loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+button.loading::before,
+.btn.loading::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Loading spinner variants */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.spinner-sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+.spinner-lg {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+}
+
+/* Dark spinner for light backgrounds */
+.spinner-dark {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-top-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Pulse loading animation */
+@keyframes pulse-loading {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading-pulse {
+    animation: pulse-loading 1.5s ease-in-out infinite;
+}
+
+/* Skeleton loading for cards */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 50%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Button disabled state improvements */
+button:disabled,
+.btn:disabled,
+button[disabled],
+.btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+button:disabled:hover,
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 /* ========================================
@@ -587,21 +691,99 @@ input[type="radio"] {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #00695C;
+    background: #006B6D;
     color: white;
-    padding: 8px 16px;
+    padding: 12px 24px;
     text-decoration: none;
     z-index: 100;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease;
 }
 
 .skip-to-content:focus {
     top: 0;
+    outline: 3px solid #FFB300;
+    outline-offset: 3px;
 }
 
-/* Focus visible for keyboard navigation */
+/* Enhanced focus visible for keyboard navigation */
 *:focus-visible {
-    outline: 2px solid #FFB300;
+    outline: 3px solid #FFB300;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Button focus states */
+button:focus-visible,
+a.btn:focus-visible {
+    outline: 3px solid #FFB300;
+    outline-offset: 4px;
+}
+
+/* Input focus states */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #FFB300;
     outline-offset: 2px;
+    border-color: #006B6D;
+}
+
+/* Link focus states */
+a:focus-visible {
+    outline: 3px solid #FFB300;
+    outline-offset: 2px;
+    text-decoration: underline;
+}
+
+/* Improved color contrast for text-brand-slate */
+.text-brand-slate {
+    color: #475569 !important; /* Darker for better WCAG AA contrast */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    body {
+        font-weight: 500;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    button, .btn {
+        border: 2px solid currentColor;
+    }
+    
+    *:focus-visible {
+        outline-width: 4px;
+    }
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 
 /* Reduced motion for users who prefer it */
@@ -628,10 +810,36 @@ input[type="radio"] {
 
 /* Better touch targets for mobile */
 @media (hover: none) and (pointer: coarse) {
-    /* Increase tap target sizes */
+    /* Increase tap target sizes - WCAG recommends 44x44px minimum */
     a, button {
         min-height: 44px;
         min-width: 44px;
+        padding: 12px 16px;
+    }
+    
+    /* Navigation links need proper spacing */
+    nav a {
+        padding: 14px 20px;
+        margin: 4px 0;
+    }
+    
+    /* Footer links need more spacing */
+    footer a {
+        display: inline-block;
+        padding: 10px 0;
+        margin: 4px 0;
+    }
+    
+    /* Form inputs */
+    input, textarea, select {
+        min-height: 48px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Mobile menu items */
+    .mobile-menu-link {
+        min-height: 60px;
+        padding: 16px 24px;
     }
     
     /* Remove hover effects on touch devices */
@@ -653,6 +861,55 @@ input[type="radio"] {
     button:active,
     a.btn:active {
         transform: scale(0.97);
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+    /* Increase button sizes on mobile */
+    button, .btn {
+        min-height: 48px;
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+    
+    /* Larger clickable areas for icons */
+    .mobile-menu-toggle,
+    #langToggleMobile {
+        padding: 12px;
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    /* Footer link spacing */
+    footer ul li {
+        margin: 8px 0;
+    }
+    
+    footer a {
+        padding: 12px 0;
+        display: inline-block;
+    }
+    
+    /* Social media icons */
+    footer .flex.space-x-4 a {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Language switcher */
+    #langToggle, #langToggleMobile {
+        min-width: 56px;
+        min-height: 48px;
+    }
+    
+    /* Back to top button */
+    #backToTop {
+        width: 56px;
+        height: 56px;
     }
 }
 

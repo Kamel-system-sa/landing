@@ -1,0 +1,25 @@
+{
+  "name": "kamel-landing-page",
+  "version": "1.0.0",
+  "description": "Kamel - Complete Hajj Operations Management Platform",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.min.css --minify",
+    "watch:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.min.css --watch",
+    "dev": "npm run watch:css"
+  },
+  "keywords": [
+    "hajj",
+    "operations",
+    "management",
+    "saas",
+    "saudi-arabia"
+  ],
+  "author": "Kamel",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {}
+}
+

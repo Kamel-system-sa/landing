@@ -1,0 +1,7 @@
+/* Tailwind CSS Input File */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Note: Custom styles are in custom.css which should be loaded separately */
+
