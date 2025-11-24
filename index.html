@@ -11,32 +11,50 @@
     
     <title>Kamel - Hajj Operations Management Platform</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Updated for Modern Minimal Design -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Epilogue:wght@400;500;600;700&family=Almarai:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config - New Design System -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-green': '#00695C',
-                        'brand-green-hover': '#2E7D32',
-                        'brand-gold': '#FFB300',
-                        'brand-navy': '#0D47A1',
-                        'brand-cream': '#FFF8E1',
-                        'brand-red': '#C8102E',
+                        // Primary Colors
+                        'brand-teal': '#006B6D',
+                        'brand-teal-light': '#008B8D',
+                        'brand-teal-dark': '#004B4D',
+                        'brand-gold': '#D4AF37',
+                        'brand-gold-light': '#E4BF47',
+                        'brand-gold-dark': '#B49527',
+                        // Supporting Colors
+                        'brand-sand': '#E8D5B5',
+                        'brand-navy': '#1A2332',
+                        'brand-sage': '#8B9D83',
+                        // Neutrals
+                        'brand-charcoal': '#2D3748',
+                        'brand-slate': '#64748B',
+                        'brand-silver': '#F1F5F9',
+                        'brand-pearl': '#FAFAFA',
                     },
                     fontFamily: {
-                        'en-heading': ['Inter', 'sans-serif'],
-                        'en-body': ['Open Sans', 'sans-serif'],
-                        'ar-heading': ['Cairo', 'sans-serif'],
-                        'ar-body': ['Tajawal', 'sans-serif'],
+                        'en-heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'en-body': ['Epilogue', 'sans-serif'],
+                        'ar-heading': ['Almarai', 'sans-serif'],
+                        'ar-body': ['IBM Plex Sans Arabic', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'hero': ['3.5rem', { lineHeight: '1.1', fontWeight: '700' }],
+                        'hero-mobile': ['2.5rem', { lineHeight: '1.1', fontWeight: '700' }],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
                     }
                 }
             }
@@ -46,65 +64,77 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="font-en-body antialiased bg-white text-gray-900">
+<body class="font-en-body antialiased bg-brand-pearl text-brand-charcoal text-lg">
 
-    <!-- Navigation Bar -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
-        <nav class="container mx-auto px-4 py-4 lg:px-8">
+    <!-- Navigation Bar - Redesigned Modern Minimal -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-silver transition-all duration-300">
+        <nav class="container mx-auto px-6 py-5 lg:px-12">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
+                <!-- Logo - Using Actual Kamel Logo -->
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center space-x-2 rtl:space-x-reverse">
-                        <div class="w-10 h-10 bg-brand-green rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">K</span>
+                    <a href="#" class="flex items-center transition-transform hover:scale-105 duration-300">
+                        <!-- Replace this image src with your exported logo PNG/SVG -->
+                        <img src="assets/images/logo.svg" alt="Kamel Logo" class="h-12 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback if logo not loaded -->
+                        <div class="hidden items-center space-x-3 rtl:space-x-reverse">
+                            <div class="w-12 h-12 bg-brand-charcoal rounded-lg flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                </svg>
+                            </div>
+                            <span class="text-2xl font-en-heading font-bold text-brand-charcoal" data-i18n="nav.logo">كامل</span>
                         </div>
-                        <span class="text-2xl font-en-heading font-bold text-brand-navy" data-i18n="nav.logo">Kamel</span>
                     </a>
                 </div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-8 rtl:space-x-reverse">
-                    <a href="#features" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.features">Features</a>
-                    <a href="#solutions" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.solutions">Solutions</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.pricing">Pricing</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.testimonials">Testimonials</a>
-                    <a href="#contact" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.contact">Contact</a>
+                <!-- Desktop Navigation - Simplified to 4 items -->
+                <div class="hidden lg:flex items-center space-x-10 rtl:space-x-reverse">
+                    <a href="#features" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.platform">Platform</a>
+                    <a href="#solutions" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.solutions">Solutions</a>
+                    <a href="#pricing" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.pricing">Pricing</a>
+                    <a href="#contact" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.contact">Contact</a>
                 </div>
 
                 <!-- CTA and Language Switcher -->
                 <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-                    <!-- Language Switcher -->
-                    <button id="langToggle" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-green border border-gray-300 rounded-lg transition-colors">
-                        <span id="langText">AR</span>
+                    <!-- Language Switcher - More Prominent -->
+                    <button id="langToggle" class="flex items-center px-4 py-2.5 text-sm font-semibold text-brand-charcoal hover:text-brand-teal border-2 border-brand-silver hover:border-brand-teal rounded-xl transition-all">
+                        <svg class="w-5 h-5 mr-2 rtl:ml-2 rtl:mr-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                        <span id="langText" class="font-bold">AR</span>
                     </button>
                     
-                    <!-- Primary CTA -->
-                    <a href="#contact" class="px-6 py-2.5 bg-brand-gold hover:bg-yellow-600 text-white font-semibold rounded-lg transition-colors shadow-md" data-i18n="nav.cta">Request Demo</a>
+                    <!-- Primary CTA - Gradient Button -->
+                    <a href="#contact" class="px-7 py-3 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300" data-i18n="nav.cta">Start Free Trial</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center space-x-3 rtl:space-x-reverse">
-                    <button id="langToggleMobile" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-green border border-gray-300 rounded-lg">
-                        <span id="langTextMobile">AR</span>
+                    <button id="langToggleMobile" class="flex items-center px-3 py-2 text-sm font-semibold text-brand-charcoal border-2 border-brand-silver rounded-lg">
+                        <span id="langTextMobile" class="font-bold">AR</span>
                     </button>
-                    <button id="mobileMenuToggle" class="text-gray-700 hover:text-brand-green focus:outline-none" aria-label="Toggle menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <button id="mobileMenuToggle" class="text-brand-charcoal hover:text-brand-teal focus:outline-none p-2" aria-label="Toggle menu">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="#features" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.features">Features</a>
-                    <a href="#solutions" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.solutions">Solutions</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.pricing">Pricing</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.testimonials">Testimonials</a>
-                    <a href="#contact" class="text-gray-700 hover:text-brand-green transition-colors font-medium" data-i18n="nav.contact">Contact</a>
-                    <a href="#contact" class="px-6 py-2.5 bg-brand-gold hover:bg-yellow-600 text-white font-semibold rounded-lg transition-colors text-center" data-i18n="nav.cta">Request Demo</a>
+            <!-- Mobile Menu - Full Screen Overlay -->
+            <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-50 pt-20">
+                <div class="container mx-auto px-6 py-8">
+                    <div class="flex flex-col space-y-6">
+                        <a href="#features" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.platform">Platform</a>
+                        <a href="#solutions" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.solutions">Solutions</a>
+                        <a href="#pricing" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.pricing">Pricing</a>
+                        <a href="#contact" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.contact">Contact</a>
+                        <div class="pt-6">
+                            <a href="#contact" class="block w-full px-8 py-4 bg-gradient-to-r from-brand-teal to-brand-teal-light text-white font-bold rounded-xl text-center shadow-lg text-lg" data-i18n="nav.cta">Start Free Trial</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -113,56 +143,102 @@
     <!-- Main Content -->
     <main class="pt-20">
 
-        <!-- Hero Section -->
-        <section id="hero" class="relative bg-gradient-to-br from-brand-cream via-white to-gray-50 py-20 lg:py-32 overflow-hidden">
-            <div class="container mx-auto px-4 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <!-- Hero Content -->
-                    <div class="text-center lg:text-left rtl:lg:text-right">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-en-heading font-bold text-brand-navy leading-tight mb-6" data-i18n="hero.headline">
-                            Transform Your Hajj Operations
+        <!-- Hero Section - Modern Minimal Redesign -->
+        <section id="hero" class="relative bg-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+            <!-- Subtle Background Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #006B6D 1px, transparent 0); background-size: 40px 40px;"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Hero Content - Centered Layout -->
+                    <div class="text-center max-w-4xl mx-auto mb-16">
+                        <!-- Overline -->
+                        <div class="inline-flex items-center px-4 py-2 bg-brand-sand/30 rounded-full mb-8">
+                            <span class="w-2 h-2 bg-brand-teal rounded-full mr-2 rtl:ml-2 rtl:mr-0 animate-pulse"></span>
+                            <span class="text-sm font-semibold text-brand-teal" data-i18n="hero.overline">Complete Hajj Operations Platform</span>
+                        </div>
+                        
+                        <!-- Headline - Shorter, More Impactful -->
+                        <h1 class="text-hero-mobile md:text-hero font-en-heading font-extrabold text-brand-charcoal leading-tight mb-8" data-i18n="hero.headline">
+                            Excellence in Every Journey
                         </h1>
-                        <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed" data-i18n="hero.subheadline">
-                            Complete digital platform for managing pilgrims, services, and quality standards throughout the entire Hajj journey.
+                        
+                        <!-- Subheadline - Concise -->
+                        <p class="text-xl md:text-2xl text-brand-slate mb-12 leading-relaxed max-w-3xl mx-auto" data-i18n="hero.subheadline">
+                            Streamline operations, ensure compliance, and deliver exceptional service with Saudi Arabia's most trusted Hajj management platform.
                         </p>
                         
-                        <!-- CTA Buttons -->
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start rtl:lg:justify-end">
-                            <a href="#contact" class="px-8 py-4 bg-brand-gold hover:bg-yellow-600 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" data-i18n="hero.primaryCta">
-                                Get Started
+                        <!-- Single Primary CTA -->
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                            <a href="#contact" class="group px-10 py-5 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-2xl transition-all shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 duration-300 text-lg" data-i18n="hero.primaryCta">
+                                Start Your Free Trial
+                                <svg class="inline-block w-5 h-5 ml-2 rtl:mr-2 rtl:ml-0 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
                             </a>
-                            <a href="#features" class="px-8 py-4 bg-white hover:bg-gray-50 text-brand-navy font-semibold rounded-lg transition-all border-2 border-brand-navy" data-i18n="hero.secondaryCta">
-                                Learn More
+                            <a href="#demo" class="flex items-center px-8 py-5 text-brand-teal hover:text-brand-teal-dark font-bold transition-colors text-lg group" data-i18n="hero.secondaryCta">
+                                <svg class="w-6 h-6 mr-3 rtl:ml-3 rtl:mr-0 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                Watch 2-Min Demo
                             </a>
                         </div>
 
-                        <!-- Trust Indicators -->
-                        <div class="mt-12 grid grid-cols-3 gap-6 text-center">
-                            <div>
-                                <div class="text-3xl font-bold text-brand-green" data-i18n="hero.stat1Value">500+</div>
-                                <div class="text-sm text-gray-600 mt-1" data-i18n="hero.stat1Label">Operators</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-bold text-brand-green" data-i18n="hero.stat2Value">1M+</div>
-                                <div class="text-sm text-gray-600 mt-1" data-i18n="hero.stat2Label">Pilgrims Served</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-bold text-brand-green" data-i18n="hero.stat3Value">99.9%</div>
-                                <div class="text-sm text-gray-600 mt-1" data-i18n="hero.stat3Label">Uptime</div>
-                            </div>
+                        <!-- Trust Badge -->
+                        <div class="mt-10 flex items-center justify-center gap-2 text-brand-slate text-sm">
+                            <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span data-i18n="hero.trustBadge">No credit card required • Free 30-day trial</span>
                         </div>
                     </div>
 
-                    <!-- Hero Image -->
-                    <div class="relative">
-                        <div class="bg-gradient-to-br from-brand-green to-brand-navy rounded-2xl shadow-2xl p-8 aspect-square flex items-center justify-center">
-                            <svg class="w-full h-full text-white opacity-20" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <span class="text-white text-6xl font-bold opacity-80">🕋</span>
-                            </div>
+                    <!-- Animated Stats Counter - Prominent -->
+                    <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-10 border border-brand-silver">
+                        <div class="text-center">
+                            <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-teal to-brand-teal-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat1Value">500+</div>
+                            <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat1Label">Hajj Operators</div>
                         </div>
+                        <div class="text-center border-x border-brand-silver">
+                            <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-gold to-brand-gold-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat2Value">1M+</div>
+                            <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat2Label">Pilgrims Served</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-sage to-brand-teal-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat3Value">99.9%</div>
+                            <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat3Label">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="absolute top-20 right-10 w-64 h-64 bg-brand-teal/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 left-10 w-80 h-80 bg-brand-gold/5 rounded-full blur-3xl"></div>
+        </section>
+
+        <!-- Social Proof Section - NEW -->
+        <section id="social-proof" class="py-16 bg-brand-silver/50">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-10">
+                    <p class="text-brand-slate font-medium text-sm uppercase tracking-wider" data-i18n="social.trusted">Trusted by Leading Hajj Operators</p>
+                </div>
+                
+                <!-- Partner Logos Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Logo Placeholders - Replace with actual partner logos -->
+                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-2xl font-bold text-brand-charcoal">Partner 1</span>
+                    </div>
+                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-2xl font-bold text-brand-charcoal">Partner 2</span>
+                    </div>
+                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-2xl font-bold text-brand-charcoal">Partner 3</span>
+                    </div>
+                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <span class="text-2xl font-bold text-brand-charcoal">Partner 4</span>
                     </div>
                 </div>
             </div>

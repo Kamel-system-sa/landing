@@ -3,20 +3,21 @@ const content = {
     en: {
         nav: {
             logo: "Kamel",
-            features: "Features",
+            platform: "Platform",
             solutions: "Solutions",
             pricing: "Pricing",
-            testimonials: "Testimonials",
             contact: "Contact",
-            cta: "Request Demo"
+            cta: "Start Free Trial"
         },
         hero: {
-            headline: "Transform Your Hajj Operations",
-            subheadline: "Complete digital platform for managing pilgrims, services, and quality standards throughout the entire Hajj journey.",
-            primaryCta: "Get Started",
-            secondaryCta: "Learn More",
+            overline: "Complete Hajj Operations Platform",
+            headline: "Excellence in Every Journey",
+            subheadline: "Streamline operations, ensure compliance, and deliver exceptional service with Saudi Arabia's most trusted Hajj management platform.",
+            primaryCta: "Start Your Free Trial",
+            secondaryCta: "Watch 2-Min Demo",
+            trustBadge: "No credit card required • Free 30-day trial",
             stat1Value: "500+",
-            stat1Label: "Operators",
+            stat1Label: "Hajj Operators",
             stat2Value: "1M+",
             stat2Label: "Pilgrims Served",
             stat3Value: "99.9%",
@@ -163,21 +164,22 @@ const content = {
     ar: {
         nav: {
             logo: "كامل",
-            features: "الميزات",
+            platform: "المنصة",
             solutions: "الحلول",
             pricing: "الأسعار",
-            testimonials: "آراء العملاء",
             contact: "تواصل معنا",
-            cta: "طلب عرض توضيحي"
+            cta: "ابدأ تجربتك المجانية"
         },
         hero: {
-            headline: "حوّل عمليات الحج لديك",
-            subheadline: "منصة رقمية شاملة لإدارة الحجاج والخدمات ومعايير الجودة طوال رحلة الحج بأكملها.",
-            primaryCta: "ابدأ الآن",
-            secondaryCta: "اعرف المزيد",
+            overline: "منصة متكاملة لإدارة عمليات الحج",
+            headline: "التميز في كل رحلة",
+            subheadline: "قم بتبسيط العمليات، وضمان الامتثال، وتقديم خدمة استثنائية مع المنصة الأكثر موثوقية لإدارة الحج في المملكة العربية السعودية.",
+            primaryCta: "ابدأ تجربتك المجانية",
+            secondaryCta: "شاهد عرض دقيقتين",
+            trustBadge: "لا حاجة لبطاقة ائتمان • تجربة مجانية لمدة 30 يوماً",
             stat1Value: "500+",
-            stat1Label: "مشغل",
-            stat2Value: "1+ مليون",
+            stat1Label: "مشغل حج",
+            stat2Value: "+1 مليون",
             stat2Label: "حاج تمت خدمته",
             stat3Value: "99.9%",
             stat3Label: "وقت التشغيل"
