@@ -425,31 +425,88 @@ if ('IntersectionObserver' in window) {
 }
 
 // ========================================
-// Scroll Animation (subtle fade-in effect)
+// Enhanced Scroll Animation System
 // ========================================
 
 function initializeScrollAnimations() {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Show all elements immediately for users who prefer reduced motion
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            el.classList.add('animated');
+            el.style.opacity = '1';
+        });
+        return;
+    }
+    
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
+                // Add animated class and trigger animation
+                entry.target.classList.add('animated');
+                
+                // Get animation type from data attribute
+                const animationType = entry.target.dataset.animation || 'fade-up';
+                const animationDelay = entry.target.dataset.delay || '0';
+                
+                // Apply animation
+                setTimeout(() => {
+                    entry.target.classList.add(`animate-${animationType}`);
+                }, parseInt(animationDelay));
+                
+                // Stop observing once animated
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe sections for animation
-    const animatedElements = document.querySelectorAll('section');
+    // Observe all elements with scroll-animate class
+    const animatedElements = document.querySelectorAll('.scroll-animate');
     animatedElements.forEach(el => observer.observe(el));
+    
+    // Handle staggered animations for groups
+    const staggerGroups = document.querySelectorAll('[data-stagger-group]');
+    staggerGroups.forEach(group => {
+        const children = group.querySelectorAll('[data-stagger-item]');
+        children.forEach((child, index) => {
+            child.dataset.delay = (index * 150).toString(); // 150ms between items
+            observer.observe(child);
+        });
+    });
 }
 
 // Initialize scroll animations
 document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
+
+// ========================================
+// Parallax Effect for Background Elements
+// ========================================
+
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    
+    if (parallaxElements.length === 0) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.parallax || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+}
+
+// Initialize parallax on load
+document.addEventListener('DOMContentLoaded', initializeParallax);
 
 // ========================================
 // Back to Top Button

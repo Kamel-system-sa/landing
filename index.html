@@ -107,7 +107,7 @@
                     </button>
                     
                     <!-- Primary CTA - Gradient Button -->
-                    <a href="#contact" class="px-7 py-3 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300" data-i18n="nav.cta">Schedule a Demo</a>
+                    <a href="#contact" class="px-7 py-3 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300 ripple btn" data-i18n="nav.cta">Schedule a Demo</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -159,10 +159,10 @@
 
         <!-- Hero Section - Modern Minimal Redesign -->
         <section id="hero" class="relative bg-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-            <!-- Subtle Background Pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #006B6D 1px, transparent 0); background-size: 40px 40px;"></div>
-            </div>
+            <!-- Animated Gradient Mesh Background -->
+            <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+            <!-- Geometric Pattern Overlay -->
+            <div class="absolute inset-0 pattern-dots opacity-40"></div>
             
             <div class="container mx-auto px-6 lg:px-12 relative z-10">
                 <div class="max-w-7xl mx-auto">
@@ -186,14 +186,14 @@
                         
                         <!-- Enterprise CTAs -->
                         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <a href="#contact" class="group px-10 py-5 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-2xl transition-all shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 duration-300 text-lg" data-i18n="hero.primaryCta">
+                            <a href="#contact" class="group px-10 py-5 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white font-bold rounded-2xl transition-all shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 duration-300 text-lg ripple btn" data-i18n="hero.primaryCta">
                                 Talk to Our Team
-                                <svg class="inline-block w-5 h-5 ml-2 rtl:mr-2 rtl:ml-0 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="inline-block w-5 h-5 ml-2 rtl:mr-2 rtl:ml-0 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform icon-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                 </svg>
                             </a>
-                            <a href="#contact" class="flex items-center px-8 py-5 text-brand-teal hover:text-brand-teal-dark font-bold transition-colors text-lg group border-2 border-brand-teal rounded-2xl hover:bg-brand-teal/5" data-i18n="hero.secondaryCta">
-                                <svg class="w-6 h-6 mr-3 rtl:ml-3 rtl:mr-0 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <a href="#contact" class="flex items-center px-8 py-5 text-brand-teal hover:text-brand-teal-dark font-bold transition-colors text-lg group border-2 border-brand-teal rounded-2xl hover:bg-brand-teal/5 btn" data-i18n="hero.secondaryCta">
+                                <svg class="w-6 h-6 mr-3 rtl:ml-3 rtl:mr-0 group-hover:scale-110 transition-transform icon-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                                 Schedule a Demo
@@ -210,16 +210,16 @@
                     </div>
 
                     <!-- Animated Stats Counter - Prominent -->
-                    <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-10 border border-brand-silver">
-                        <div class="text-center">
+                    <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto bg-white rounded-3xl shadow-level-4 hover:shadow-level-4 p-10 border border-brand-silver scroll-animate" data-animation="fade-up" data-stagger-group>
+                        <div class="text-center scroll-animate" data-animation="scale-in-bounce" data-stagger-item>
                             <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-teal to-brand-teal-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat1Value">500+</div>
                             <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat1Label">Hajj Operators</div>
                         </div>
-                        <div class="text-center border-x border-brand-silver">
+                        <div class="text-center border-x border-brand-silver scroll-animate" data-animation="scale-in-bounce" data-stagger-item>
                             <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-gold to-brand-gold-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat2Value">1M+</div>
                             <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat2Label">Pilgrims Served</div>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center scroll-animate" data-animation="scale-in-bounce" data-stagger-item>
                             <div class="text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-brand-sage to-brand-teal-light bg-clip-text text-transparent mb-2" data-i18n="hero.stat3Value">99.9%</div>
                             <div class="text-base md:text-lg font-medium text-brand-slate" data-i18n="hero.stat3Label">Uptime</div>
                         </div>
@@ -233,7 +233,9 @@
         </section>
 
         <!-- Industry Leadership Section - NEW Top Platform -->
-        <section id="leadership" class="py-20 lg:py-28 bg-gradient-to-br from-white to-brand-silver/30">
+        <section id="leadership" class="py-20 lg:py-28 bg-diagonal-teal relative overflow-hidden">
+            <!-- Floating accent shapes -->
+            <div class="absolute inset-0 bg-floating-shapes pointer-events-none"></div>
             <div class="container mx-auto px-6 lg:px-12">
                 <div class="max-w-6xl mx-auto">
                     <!-- Main Message -->
@@ -284,7 +286,7 @@
         </section>
 
         <!-- Partners Section - Enhanced -->
-        <section id="partners" class="py-16 bg-white">
+        <section id="partners" class="py-16 bg-white pattern-grid">
             <div class="container mx-auto px-6 lg:px-12">
                 <div class="text-center mb-12">
                     <p class="text-brand-slate font-semibold text-sm uppercase tracking-wider mb-4" data-i18n="partners.title">Trusted Partnerships</p>
@@ -322,7 +324,7 @@
         </section>
 
         <!-- Features Section - Redesigned Modern Minimal -->
-        <section id="features" class="py-24 lg:py-32 bg-white">
+        <section id="features" class="py-24 lg:py-32 bg-mixed-pattern relative overflow-hidden">
             <div class="container mx-auto px-6 lg:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-20">
@@ -336,14 +338,26 @@
                 </div>
 
                 <!-- Features Grid - 2x3 Layout -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto" data-stagger-group>
                     <!-- Feature 1 -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-left" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-teal-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Replace with actual screenshot -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-teal/5 to-brand-teal/10 group-hover:shadow-level-3 transition-shadow animate-pulse-glow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-teal/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <p class="text-sm text-brand-teal/60 font-medium" data-i18n="features.screenshotPlaceholder">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Operations Hub Dashboard" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature1Title">
                             Operations Hub
                         </h3>
@@ -359,13 +373,25 @@
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="fade-up" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-gold to-brand-gold-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Replace with actual screenshot -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 group-hover:shadow-level-3 transition-shadow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-gold/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                </svg>
+                                <p class="text-sm text-brand-gold/60 font-medium">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Smart Logistics Map View" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature2Title">
                             Smart Logistics
                         </h3>
@@ -381,12 +407,24 @@
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-sage transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-sage transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-right" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-sage to-brand-teal-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Replace with actual screenshot -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-sage/5 to-brand-sage/10 group-hover:shadow-level-3 transition-shadow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-sage/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <p class="text-sm text-brand-sage/60 font-medium">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Compliance Dashboard" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature3Title">
                             Compliance Engine
                         </h3>
@@ -402,12 +440,24 @@
                     </div>
 
                     <!-- Feature 4 -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-left" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-navy to-brand-teal rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Replace with actual screenshot -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-navy/5 to-brand-teal/10 group-hover:shadow-level-3 transition-shadow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-navy/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                                </svg>
+                                <p class="text-sm text-brand-navy/60 font-medium">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Communication Center" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature4Title">
                             Communication Suite
                         </h3>
@@ -423,12 +473,24 @@
                     </div>
 
                     <!-- Feature 5 - NEW -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="fade-up" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-gold-dark to-brand-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Replace with actual screenshot -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-gold-dark/5 to-brand-gold/10 group-hover:shadow-level-3 transition-shadow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-gold/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                                </svg>
+                                <p class="text-sm text-brand-gold/60 font-medium">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Analytics Dashboard" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature5Title">
                             Analytics & Insights
                         </h3>
@@ -444,12 +506,24 @@
                     </div>
 
                     <!-- Feature 6 - NEW -->
-                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div class="group bg-white rounded-2xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-300 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-right" data-stagger-item>
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-teal-dark to-brand-teal rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                             </svg>
                         </div>
+                        
+                        <!-- Screenshot Placeholder - Mobile Device Frame -->
+                        <div class="relative mb-6 rounded-xl overflow-hidden shadow-level-2 bg-gradient-to-br from-brand-teal-dark/5 to-brand-teal/10 group-hover:shadow-level-3 transition-shadow">
+                            <div class="aspect-[16/10] flex flex-col items-center justify-center p-6">
+                                <svg class="w-16 h-16 text-brand-teal/30 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                                <p class="text-sm text-brand-teal/60 font-medium">Screenshot Coming Soon</p>
+                                <!-- Replace the div above with: <img src="path/to/screenshot.jpg" alt="Mobile App Interface" class="w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+                        
                         <h3 class="text-2xl font-en-heading font-bold text-brand-charcoal mb-4" data-i18n="features.feature6Title">
                             Mobile First
                         </h3>
@@ -468,7 +542,7 @@
         </section>
 
         <!-- Solutions Section (Alternating Layout) -->
-        <section id="solutions" class="py-20 lg:py-28 bg-gray-50">
+        <section id="solutions" class="py-20 lg:py-28 bg-white pattern-diagonal relative overflow-hidden">
             <div class="container mx-auto px-4 lg:px-8">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
@@ -516,43 +590,66 @@
                         </ul>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <div class="relative bg-gradient-to-br from-brand-teal via-brand-teal-light to-brand-sage rounded-3xl shadow-2xl p-12 aspect-square flex items-center justify-center overflow-hidden group hover:scale-105 transition-transform duration-500">
-                            <!-- Animated Background Pattern -->
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute inset-0" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);"></div>
+                        <!-- Screenshot Placeholder - Before/After Style for Solution 1 -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-level-4 hover:shadow-level-4 transition-shadow">
+                            <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-50">
+                                <!-- Problem Side (Top Half) -->
+                                <div class="h-1/2 bg-gradient-to-br from-red-50 to-red-100 border-b-4 border-red-300 flex flex-col items-center justify-center p-8">
+                                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                        <svg class="w-20 h-20 text-red-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <p class="text-sm text-red-600 font-semibold">Before: Scattered Data</p>
+                                    </div>
+                                </div>
+                                <!-- Solution Side (Bottom Half) -->
+                                <div class="h-1/2 bg-gradient-to-br from-green-50 to-teal-100 flex flex-col items-center justify-center p-8">
+                                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                        <svg class="w-20 h-20 text-brand-teal mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <p class="text-sm text-brand-teal font-semibold">After: Unified Platform</p>
+                                    </div>
+                                </div>
+                                <!-- Add Screenshot Label -->
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                                    <p class="text-xs text-gray-600 font-medium">📸 Add Screenshot Here</p>
+                                </div>
                             </div>
-                            <!-- Icon -->
-                            <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-                                <svg class="w-48 h-48 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 3v6a1 1 0 001 1h6"/>
-                                </svg>
-                            </div>
-                            <!-- Decorative Elements -->
-                            <div class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-                            <div class="absolute bottom-4 left-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                            <!-- Replace entire div with: <img src="path/to/solution1-screenshot.jpg" alt="Unified Operations Dashboard" class="w-full h-full object-cover"> -->
                         </div>
                     </div>
                 </div>
 
                 <!-- Solution 2 -->
                 <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
-                    <div class="relative bg-gradient-to-br from-brand-gold via-brand-gold-light to-orange-400 rounded-3xl shadow-2xl p-12 aspect-square flex items-center justify-center overflow-hidden group hover:scale-105 transition-transform duration-500">
-                        <!-- Animated Background Pattern -->
-                        <div class="absolute inset-0 opacity-20">
-                            <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(255,255,255,.2) 1px, transparent 1px); background-size: 30px 30px;"></div>
+                    <!-- Screenshot Placeholder - Before/After Style for Solution 2 -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-level-4 hover:shadow-level-4 transition-shadow">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-50">
+                            <!-- Problem Side (Top Half) -->
+                            <div class="h-1/2 bg-gradient-to-br from-red-50 to-red-100 border-b-4 border-red-300 flex flex-col items-center justify-center p-8">
+                                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                    <svg class="w-20 h-20 text-red-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <p class="text-sm text-red-600 font-semibold">Before: Complex Logistics</p>
+                                </div>
+                            </div>
+                            <!-- Solution Side (Bottom Half) -->
+                            <div class="h-1/2 bg-gradient-to-br from-green-50 to-emerald-100 flex flex-col items-center justify-center p-8">
+                                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                    <svg class="w-20 h-20 text-brand-gold mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                    </svg>
+                                    <p class="text-sm text-brand-gold font-semibold">After: Smart Tracking</p>
+                                </div>
+                            </div>
+                            <!-- Add Screenshot Label -->
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                                <p class="text-xs text-gray-600 font-medium">📸 Add Screenshot Here</p>
+                            </div>
                         </div>
-                        <!-- Icon -->
-                        <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-                            <svg class="w-48 h-48 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                            </svg>
-                        </div>
-                        <!-- Decorative Elements -->
-                        <div class="absolute top-4 right-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-                        <div class="absolute bottom-4 left-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                        <!-- Replace entire div with: <img src="path/to/solution2-screenshot.jpg" alt="GPS Logistics Dashboard" class="w-full h-full object-cover"> -->
                     </div>
                     <div>
                         <span class="inline-block px-4 py-1 bg-brand-green text-white text-sm font-semibold rounded-full mb-4" data-i18n="solutions.solution2Tag">Problem</span>
@@ -625,21 +722,33 @@
                         </ul>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <div class="relative bg-gradient-to-br from-brand-navy via-brand-teal-dark to-brand-teal rounded-3xl shadow-2xl p-12 aspect-square flex items-center justify-center overflow-hidden group hover:scale-105 transition-transform duration-500">
-                            <!-- Animated Background Pattern -->
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute inset-0" style="background-image: linear-gradient(30deg, rgba(255,255,255,.1) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.1) 87.5%); background-size: 50px 50px;"></div>
+                        <!-- Screenshot Placeholder - Before/After Style for Solution 3 -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-level-4 hover:shadow-level-4 transition-shadow">
+                            <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-50">
+                                <!-- Problem Side (Top Half) -->
+                                <div class="h-1/2 bg-gradient-to-br from-red-50 to-red-100 border-b-4 border-red-300 flex flex-col items-center justify-center p-8">
+                                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                        <svg class="w-20 h-20 text-red-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                        </svg>
+                                        <p class="text-sm text-red-600 font-semibold">Before: Manual Compliance</p>
+                                    </div>
+                                </div>
+                                <!-- Solution Side (Bottom Half) -->
+                                <div class="h-1/2 bg-gradient-to-br from-green-50 to-blue-100 flex flex-col items-center justify-center p-8">
+                                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                        <svg class="w-20 h-20 text-brand-teal mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                        </svg>
+                                        <p class="text-sm text-brand-teal font-semibold">After: Automated Reports</p>
+                                    </div>
+                                </div>
+                                <!-- Add Screenshot Label -->
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                                    <p class="text-xs text-gray-600 font-medium">📸 Add Screenshot Here</p>
+                                </div>
                             </div>
-                            <!-- Icon -->
-                            <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-                                <svg class="w-48 h-48 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4m0 4h.01"/>
-                                </svg>
-                            </div>
-                            <!-- Decorative Elements -->
-                            <div class="absolute top-4 right-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-                            <div class="absolute bottom-4 left-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                            <!-- Replace entire div with: <img src="path/to/solution3-screenshot.jpg" alt="Compliance Dashboard" class="w-full h-full object-cover"> -->
                         </div>
                     </div>
                 </div>
@@ -647,7 +756,9 @@
         </section>
 
         <!-- Testimonials Section - Modern Card Design -->
-        <section id="testimonials" class="py-24 lg:py-32 bg-white">
+        <section id="testimonials" class="py-24 lg:py-32 bg-white relative overflow-hidden">
+            <!-- Soft gradient with floating shapes -->
+            <div class="absolute inset-0 bg-floating-shapes pointer-events-none opacity-60"></div>
             <div class="container mx-auto px-6 lg:px-12">
                 <!-- Section Header -->
                 <div class="text-center mb-20">
@@ -661,9 +772,9 @@
                 </div>
 
                 <!-- Testimonials Grid - Modern Cards -->
-                <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto" data-stagger-group>
                     <!-- Testimonial 1 -->
-                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-teal transition-all duration-500 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-left" data-stagger-item>
                         <!-- Quote Icon -->
                         <div class="absolute -top-6 left-8 w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-teal-light rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -701,7 +812,7 @@
                     </div>
 
                     <!-- Testimonial 2 -->
-                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-gold transition-all duration-500 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="fade-up" data-stagger-item>
                         <!-- Quote Icon -->
                         <div class="absolute -top-6 left-8 w-12 h-12 bg-gradient-to-br from-brand-gold to-brand-gold-light rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -739,7 +850,7 @@
                     </div>
 
                     <!-- Testimonial 3 -->
-                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-sage transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="group relative bg-white rounded-3xl p-8 border-2 border-brand-silver hover:border-brand-sage transition-all duration-500 shadow-level-2 hover-shadow-grow scroll-animate" data-animation="slide-in-right" data-stagger-item>
                         <!-- Quote Icon -->
                         <div class="absolute -top-6 left-8 w-12 h-12 bg-gradient-to-br from-brand-sage to-brand-teal-light rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -800,10 +911,10 @@
                 </div>
 
                 <!-- Creative Cards Layout - Asymmetric Design -->
-                <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-start">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-start" data-stagger-group>
                     <!-- Professional Package - Large Asymmetric Card -->
-                    <div class="lg:col-span-7">
-                        <div class="group relative bg-gradient-to-br from-white to-brand-silver/30 rounded-3xl p-10 lg:p-12 border-2 border-brand-teal hover:border-brand-teal-light transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full">
+                    <div class="lg:col-span-7 scroll-animate" data-animation="slide-in-left" data-stagger-item>
+                        <div class="group relative bg-gradient-to-br from-white to-brand-silver/30 rounded-3xl p-10 lg:p-12 border-2 border-brand-teal hover:border-brand-teal-light transition-all duration-500 shadow-level-3 hover-shadow-grow h-full">
                             <!-- Most Popular Badge -->
                             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                                 <span class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-brand-teal to-brand-teal-light text-white font-bold rounded-full shadow-lg text-sm" data-i18n="pricing.popularBadge">
@@ -887,8 +998,8 @@
                     </div>
 
                     <!-- Enterprise Package - Compact Card -->
-                    <div class="lg:col-span-5">
-                        <div class="group relative bg-gradient-to-br from-brand-charcoal to-brand-navy rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full text-white">
+                    <div class="lg:col-span-5 scroll-animate" data-animation="slide-in-right" data-stagger-item>
+                        <div class="group relative bg-gradient-to-br from-brand-charcoal to-brand-navy rounded-3xl p-10 shadow-level-3 hover-shadow-grow transition-all duration-500 h-full text-white">
                             <!-- Icon Badge -->
                             <div class="absolute -top-4 left-8">
                                 <div class="w-16 h-16 bg-brand-gold rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
@@ -955,7 +1066,7 @@
         </section>
 
         <!-- FAQ Section - Modern Design -->
-        <section id="faq" class="py-24 lg:py-32 bg-gradient-to-br from-white to-brand-silver/30">
+        <section id="faq" class="py-24 lg:py-32 bg-gradient-to-br from-white to-brand-silver/30 pattern-grid relative overflow-hidden">
             <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
                 <!-- Section Header -->
                 <div class="text-center mb-20">
@@ -1065,7 +1176,8 @@
 
         <!-- Contact Section - Modern Floating Form -->
         <section id="contact" class="py-24 lg:py-32 bg-gradient-to-br from-brand-teal via-brand-teal-dark to-brand-navy relative overflow-hidden">
-            <!-- Decorative Elements -->
+            <!-- Decorative Elements with Pattern Overlay -->
+            <div class="absolute inset-0 pattern-dots opacity-20"></div>
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-gold rounded-full blur-3xl"></div>
                 <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
