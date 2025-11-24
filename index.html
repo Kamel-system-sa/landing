@@ -87,8 +87,9 @@
                     </a>
                 </div>
 
-                <!-- Desktop Navigation - Simplified to 4 items -->
+                <!-- Desktop Navigation - Simplified to 5 items -->
                 <div class="hidden lg:flex items-center space-x-10 rtl:space-x-reverse">
+                    <a href="#leadership" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.about">About</a>
                     <a href="#features" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.platform">Platform</a>
                     <a href="#solutions" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.solutions">Solutions</a>
                     <a href="#pricing" class="text-brand-charcoal hover:text-brand-teal transition-colors font-medium text-base relative group" data-i18n="nav.pricing">Pricing</a>
@@ -127,6 +128,7 @@
             <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-50 pt-20">
                 <div class="container mx-auto px-6 py-8">
                     <div class="flex flex-col space-y-6">
+                        <a href="#leadership" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.about">About</a>
                         <a href="#features" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.platform">Platform</a>
                         <a href="#solutions" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.solutions">Solutions</a>
                         <a href="#pricing" class="text-2xl font-bold text-brand-charcoal hover:text-brand-teal transition-colors py-3" data-i18n="nav.pricing">Pricing</a>
@@ -218,28 +220,91 @@
             <div class="absolute bottom-20 left-10 w-80 h-80 bg-brand-gold/5 rounded-full blur-3xl"></div>
         </section>
 
-        <!-- Social Proof Section - NEW -->
-        <section id="social-proof" class="py-16 bg-brand-silver/50">
+        <!-- Industry Leadership Section - NEW Top Platform -->
+        <section id="leadership" class="py-20 lg:py-28 bg-gradient-to-br from-white to-brand-silver/30">
             <div class="container mx-auto px-6 lg:px-12">
-                <div class="text-center mb-10">
-                    <p class="text-brand-slate font-medium text-sm uppercase tracking-wider" data-i18n="social.trusted">Trusted by Leading Hajj Operators</p>
+                <div class="max-w-6xl mx-auto">
+                    <!-- Main Message -->
+                    <div class="text-center mb-16">
+                        <span class="inline-block px-5 py-2 bg-brand-gold/20 rounded-full text-brand-gold-dark font-bold text-sm mb-6" data-i18n="leadership.badge">Industry Leader</span>
+                        <h2 class="text-4xl md:text-5xl font-en-heading font-extrabold text-brand-charcoal mb-6" data-i18n="leadership.title">
+                            Saudi Arabia's #1 Hajj Platform
+                        </h2>
+                        <p class="text-xl text-brand-slate max-w-3xl mx-auto leading-relaxed" data-i18n="leadership.subtitle">
+                            Powering excellence in Hajj operations since 2020, trusted by government authorities and leading operators nationwide
+                        </p>
+                    </div>
+
+                    <!-- Achievement Grid -->
+                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                        <div class="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-brand-silver hover:border-brand-teal transition-all hover:-translate-y-2 duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-teal-light rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-charcoal mb-3" data-i18n="leadership.cert1Title">Ministry Certified</h3>
+                            <p class="text-brand-slate" data-i18n="leadership.cert1Desc">Fully compliant with Ministry of Hajj regulations</p>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-brand-silver hover:border-brand-gold transition-all hover:-translate-y-2 duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-brand-gold to-brand-gold-light rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-charcoal mb-3" data-i18n="leadership.cert2Title">Award Winning</h3>
+                            <p class="text-brand-slate" data-i18n="leadership.cert2Desc">Recognized for innovation in Hajj technology</p>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-white rounded-3xl shadow-lg border-2 border-brand-silver hover:border-brand-sage transition-all hover:-translate-y-2 duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-brand-sage to-brand-teal-light rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-charcoal mb-3" data-i18n="leadership.cert3Title">500+ Operators</h3>
+                            <p class="text-brand-slate" data-i18n="leadership.cert3Desc">Largest network in the Kingdom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section - Enhanced -->
+        <section id="partners" class="py-16 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-12">
+                    <p class="text-brand-slate font-semibold text-sm uppercase tracking-wider mb-4" data-i18n="partners.title">Trusted Partnerships</p>
+                    <h3 class="text-2xl font-bold text-brand-charcoal mb-6" data-i18n="partners.subtitle">Working with the Best in the Industry</h3>
                 </div>
                 
                 <!-- Partner Logos Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto items-center">
                     <!-- Logo Placeholders - Replace with actual partner logos -->
-                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <span class="text-2xl font-bold text-brand-charcoal">Partner 1</span>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 1</span>
                     </div>
-                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <span class="text-2xl font-bold text-brand-charcoal">Partner 2</span>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 2</span>
                     </div>
-                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <span class="text-2xl font-bold text-brand-charcoal">Partner 3</span>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 3</span>
                     </div>
-                    <div class="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <span class="text-2xl font-bold text-brand-charcoal">Partner 4</span>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 4</span>
                     </div>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 5</span>
+                    </div>
+                    <div class="flex items-center justify-center p-6 bg-brand-pearl rounded-2xl border-2 border-brand-silver hover:border-brand-teal hover:shadow-lg transition-all duration-300 group">
+                        <span class="text-lg font-bold text-brand-charcoal group-hover:text-brand-teal transition-colors">Partner 6</span>
+                    </div>
+                </div>
+
+                <!-- Add Your Partners Section -->
+                <div class="mt-12 text-center">
+                    <p class="text-brand-slate text-sm mb-4" data-i18n="partners.addInfo">Want to add your partner logos? Replace placeholders in the HTML with actual logo images.</p>
                 </div>
             </div>
         </section>
@@ -1225,6 +1290,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 rtl:left-8 rtl:right-auto z-40 w-14 h-14 bg-gradient-to-r from-brand-teal to-brand-teal-light hover:from-brand-teal-dark hover:to-brand-teal text-white rounded-2xl shadow-2xl opacity-0 invisible transition-all duration-300 hover:scale-110 flex items-center justify-center" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
 
     <!-- Scripts -->
     <script src="js/content.js"></script>

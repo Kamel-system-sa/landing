@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSmoothScroll();
     initializeContactForm();
     initializeStickyHeader();
+    initializeBackToTop();
     updateLanguageToggleButtons();
 });
 
@@ -434,4 +435,33 @@ function initializeScrollAnimations() {
 
 // Initialize scroll animations
 document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
+
+// ========================================
+// Back to Top Button
+// ========================================
+
+function initializeBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (!backToTopButton) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+        }
+    });
+    
+    // Scroll to top on click
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 

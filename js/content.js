@@ -3,6 +3,7 @@ const content = {
     en: {
         nav: {
             logo: "Kamel",
+            about: "About",
             platform: "Platform",
             solutions: "Solutions",
             pricing: "Pricing",
@@ -23,8 +24,21 @@ const content = {
             stat3Value: "99.9%",
             stat3Label: "Uptime"
         },
-        social: {
-            trusted: "Trusted by Leading Hajj Operators"
+        leadership: {
+            badge: "Industry Leader",
+            title: "Saudi Arabia's #1 Hajj Platform",
+            subtitle: "Powering excellence in Hajj operations since 2020, trusted by government authorities and leading operators nationwide",
+            cert1Title: "Ministry Certified",
+            cert1Desc: "Fully compliant with Ministry of Hajj regulations",
+            cert2Title: "Award Winning",
+            cert2Desc: "Recognized for innovation in Hajj technology",
+            cert3Title: "500+ Operators",
+            cert3Desc: "Largest network in the Kingdom"
+        },
+        partners: {
+            title: "Trusted Partnerships",
+            subtitle: "Working with the Best in the Industry",
+            addInfo: "Want to add your partner logos? Replace placeholders in the HTML with actual logo images."
         },
         features: {
             tag: "Platform Capabilities",
@@ -172,6 +186,7 @@ const content = {
     ar: {
         nav: {
             logo: "كامل",
+            about: "عن كامل",
             platform: "المنصة",
             solutions: "الحلول",
             pricing: "الأسعار",
@@ -192,8 +207,21 @@ const content = {
             stat3Value: "99.9%",
             stat3Label: "وقت التشغيل"
         },
-        social: {
-            trusted: "موثوق به من قبل كبار مشغلي الحج"
+        leadership: {
+            badge: "رائد في الصناعة",
+            title: "المنصة رقم 1 للحج في المملكة",
+            subtitle: "نعمل على تحقيق التميز في عمليات الحج منذ عام 2020، موثوق بنا من قبل السلطات الحكومية وكبار المشغلين على مستوى المملكة",
+            cert1Title: "معتمد من الوزارة",
+            cert1Desc: "متوافق تماماً مع لوائح وزارة الحج",
+            cert2Title: "حائز على جوائز",
+            cert2Desc: "معترف به للابتكار في تقنية الحج",
+            cert3Title: "أكثر من 500 مشغل",
+            cert3Desc: "أكبر شبكة في المملكة"
+        },
+        partners: {
+            title: "شراكات موثوقة",
+            subtitle: "نعمل مع الأفضل في الصناعة",
+            addInfo: "الشعارات"
         },
         features: {
             tag: "قدرات المنصة",
