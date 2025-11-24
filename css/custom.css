@@ -1,27 +1,26 @@
-/* Custom CSS for Kamel Landing Page */
+/* Custom CSS for Kamel Landing Page - Modern Minimal Design */
 
 /* ========================================
-   Font Family Setup
+   Font Family Setup - Updated Typography
    ======================================== */
 
-/* English body text */
+/* English fonts - Modern Professional */
 .font-en-body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
 }
 
-/* English headings */
 .font-en-heading {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
 }
 
-/* Arabic body text */
+/* Arabic fonts - Clean and Readable */
 .font-ar-body {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
 
-/* Arabic headings */
 .font-ar-heading {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Almarai', sans-serif;
 }
 
 /* Apply Arabic font to headings when in Arabic mode */
@@ -31,7 +30,7 @@ html[lang="ar"] h3,
 html[lang="ar"] h4,
 html[lang="ar"] h5,
 html[lang="ar"] h6 {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Almarai', sans-serif;
 }
 
 /* ========================================
@@ -72,10 +71,11 @@ html {
    Animations
    ======================================== */
 
+/* Enhanced Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -86,7 +86,7 @@ html {
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateX(-40px);
     }
     to {
         opacity: 1;
@@ -97,7 +97,7 @@ html {
 @keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateX(40px);
     }
     to {
         opacity: 1;
@@ -105,16 +105,57 @@ html {
     }
 }
 
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
 .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
 .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out forwards;
+    animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out forwards;
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
 }
 
 /* ========================================
