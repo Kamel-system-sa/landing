@@ -7,6 +7,7 @@
     "build:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.min.css --minify",
     "watch:css": "tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.min.css --watch",
     "dev": "npm run watch:css",
+    "sync:config": "node scripts/sync-config.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
