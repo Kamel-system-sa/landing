@@ -24,6 +24,7 @@ yarn-error.log*
 .env.local
 
 # Configuration files with sensitive data
+config.json
 js/config.js
 
 # Test coverage

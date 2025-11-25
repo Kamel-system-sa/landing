@@ -5,6 +5,7 @@ module.exports = {
   collectCoverageFrom: [
     'js/**/*.js',
     '!js/config.js', // Exclude config file
+    '!scripts/**/*.js', // Exclude build scripts
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
