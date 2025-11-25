@@ -78,6 +78,54 @@
         }
     }
     
+    // Send exit intent lead to Slack
+    async function sendExitIntentToSlack(email) {
+        const timestamp = new Date().toLocaleString('en-US', { 
+            timeZone: 'Asia/Riyadh',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+        
+        const message = {
+            text: `🔥 EXIT INTENT LEAD: ${email}`,
+            attachments: [
+                {
+                    color: "#D4AF37",
+                    blocks: [
+                        {
+                            type: "section",
+                            text: {
+                                type: "mrkdwn",
+                                text: `*🔥 EXIT INTENT LEAD*\n\n*Email:* <mailto:${email}|${email}>\n\n_${timestamp} (Riyadh)_`
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+        
+        try {
+            const response = await fetch(CONFIG.SLACK_WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Required for Slack webhooks to avoid CORS errors
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(message)
+            });
+            
+            // Note: With 'no-cors' mode, we can't read the response
+            // But the webhook will still work and send to Slack
+            console.log('✅ Exit intent message sent to Slack');
+            return true;
+        } catch (error) {
+            console.error('❌ Error sending to Slack:', error);
+            return false;
+        }
+    }
+    
     // Handle form submission
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -86,6 +134,15 @@
         const email = form.querySelector('input[name="email"]').value;
         
         if (!email) return;
+        
+        // Send to Slack
+        sendExitIntentToSlack(email)
+            .then(() => {
+                console.log('✅ Exit intent email sent to Slack successfully');
+            })
+            .catch(error => {
+                console.error('❌ Error sending to Slack:', error);
+            });
         
         // Show success message
         const formContainer = document.getElementById('exitIntentForm');
@@ -96,9 +153,6 @@
             successMessage.classList.remove('hidden');
         }
         
-        // Here you would typically send to your email service
-        console.log('Exit intent email captured:', email);
-        
         // Track conversion (if you have analytics)
         if (typeof gtag !== 'undefined') {
             gtag('event', 'exit_intent_conversion', {
@@ -106,6 +160,8 @@
                 'event_label': 'email_capture'
             });
         }
+        
+        console.log('Exit intent email captured:', email);
         
         // Close popup after delay
         setTimeout(() => {

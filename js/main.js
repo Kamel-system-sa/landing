@@ -278,19 +278,60 @@ function initializeStickyHeader() {
 // ========================================
 
 // ========================================
-// FORM CONFIGURATION
+// Contact Form Handling - Slack Integration
 // ========================================
-// To enable form submissions, you need a Web3Forms API key (free):
-// 1. Visit: https://web3forms.com/
-// 2. Sign up for a free account
-// 3. Get your access key
-// 4. Replace 'YOUR_WEB3FORMS_ACCESS_KEY' below with your actual key
-// 
-// Alternative form services you can use:
-// - Formspree: https://formspree.io/
-// - Getform: https://getform.io/
-// - EmailJS: https://www.emailjs.com/
-const FORM_API_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+// This form sends submissions directly to Slack via webhook
+// Slack webhook URL is configured in js/config.js
+
+async function sendToSlack(formType, data) {
+    const timestamp = new Date().toLocaleString('en-US', { 
+        timeZone: 'Asia/Riyadh',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+    });
+    
+    const companyText = data.company ? `*Company:* ${data.company}` : '';
+    const messageText = data.message ? `\n\n*Message:*\n> ${data.message}` : '';
+    
+    const message = {
+        text: `🎯 NEW DEMO REQUEST from ${data.name}`,
+        attachments: [
+            {
+                color: "#006B6D",
+                blocks: [
+                    {
+                        type: "section",
+                        text: {
+                            type: "mrkdwn",
+                            text: `*🎯 NEW DEMO REQUEST*\n\n*Name:* ${data.name}\n*Email:* <mailto:${data.email}|${data.email}>\n${companyText}${messageText}\n\n_${timestamp} (Riyadh)_`
+                        }
+                    }
+                ]
+            }
+        ]
+    };
+    
+    try {
+        const response = await fetch(CONFIG.SLACK_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Required for Slack webhooks to avoid CORS errors
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(message)
+        });
+        
+        // Note: With 'no-cors' mode, we can't read the response
+        // But the webhook will still work and send to Slack
+        console.log('✅ Message sent to Slack successfully');
+        return true;
+    } catch (error) {
+        console.error('❌ Error sending to Slack:', error);
+        throw error;
+    }
+}
 
 function initializeContactForm() {
     const form = document.getElementById('contactForm');
@@ -299,17 +340,6 @@ function initializeContactForm() {
     
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        // Validate API key is configured
-        if (FORM_API_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-            showFormMessage('error', 
-                currentLang === 'ar' 
-                    ? 'خطأ في الإعداد: يرجى تكوين مفتاح API في js/main.js'
-                    : 'Configuration Error: Please configure the API key in js/main.js'
-            );
-            console.error('⚠️  FORM ERROR: Web3Forms API key not configured. See instructions in js/main.js');
-            return;
-        }
         
         // Check privacy checkbox
         const privacyCheckbox = form.querySelector('#privacy');
@@ -328,44 +358,40 @@ function initializeContactForm() {
             name: formData.get('name'),
             email: formData.get('email'),
             company: formData.get('company'),
-            message: formData.get('message'),
-            access_key: FORM_API_KEY
+            message: formData.get('message')
         };
         
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
+        const originalButtonText = submitButton.innerHTML;
         submitButton.disabled = true;
-        submitButton.classList.add('loading');
-        submitButton.textContent = currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
+        submitButton.innerHTML = currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
         
         try {
-            // Send to Web3Forms
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+            // Send to Slack
+            await sendToSlack('Contact Form', data);
             
-            const result = await response.json();
+            // Show success message
+            showFormMessage('success', content[currentLang].contact.successMessage);
             
-            if (result.success) {
-                showFormMessage('success', content[currentLang].contact.successMessage);
-                form.reset();
-            } else {
-                showFormMessage('error', content[currentLang].contact.errorMessage);
+            // Reset form
+            form.reset();
+            
+            // Track conversion if you have analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'Contact',
+                    'event_label': 'Contact Form'
+                });
             }
+            
         } catch (error) {
             console.error('Form submission error:', error);
             showFormMessage('error', content[currentLang].contact.errorMessage);
         } finally {
-            // Reset button
+            // Restore button
             submitButton.disabled = false;
-            submitButton.classList.remove('loading');
-            submitButton.textContent = originalButtonText;
+            submitButton.innerHTML = originalButtonText;
         }
     });
 }
