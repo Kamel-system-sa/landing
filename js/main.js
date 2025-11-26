@@ -281,7 +281,6 @@ function initializeStickyHeader() {
 // Contact Form Handling - Slack Integration
 // ========================================
 // This form sends submissions directly to Slack via webhook
-// Slack webhook URL is configured in js/config.js
 
 async function sendToSlack(formType, data) {
     const timestamp = new Date().toLocaleString('en-US', { 
@@ -314,7 +313,7 @@ async function sendToSlack(formType, data) {
     };
     
     try {
-        const response = await fetch(CONFIG.SLACK_WEBHOOK_URL, {
+        const response = await fetch('https://hooks.slack.com/services/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', {
             method: 'POST',
             mode: 'no-cors', // Required for Slack webhooks to avoid CORS errors
             headers: {
