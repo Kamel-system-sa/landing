@@ -107,20 +107,48 @@
         };
         
         try {
-            const response = await fetch('https://hooks.slack.com/services/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', {
+            // Try sending without Content-Type header to avoid CORS preflight
+            // This makes it a "simple request" that might bypass CORS restrictions
+            const response = await fetch('https://hooks.slack.com/services/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', {
                 method: 'POST',
-                mode: 'no-cors', // Required for Slack webhooks to avoid CORS errors
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify(message)
             });
             
-            // Note: With 'no-cors' mode, we can't read the response
-            // But the webhook will still work and send to Slack
-            console.log('✅ Exit intent message sent to Slack');
-            return true;
+            // Check response status
+            if (!response.ok) {
+                const errorText = await response.text().catch(() => 'Unknown error');
+                console.error('❌ Slack webhook returned error:', response.status, errorText);
+                return false;
+            }
+            
+            // Verify Slack received the message (Slack returns "ok" for successful webhooks)
+            const responseText = await response.text();
+            if (responseText === 'ok') {
+                console.log('✅ Exit intent message sent to Slack');
+                return true;
+            } else {
+                console.warn('⚠️ Unexpected response from Slack:', responseText);
+                // Still return true as the message might have been received
+                return true;
+            }
         } catch (error) {
+            // Check if it's a CORS error
+            if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                console.error('❌ CORS error: Slack webhook blocked by browser. Consider using a backend proxy.');
+                // Try fallback: send with no-cors mode (won't verify success but might work)
+                try {
+                    await fetch('https://hooks.slack.com/services/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', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: JSON.stringify(message)
+                    });
+                    console.log('⚠️ Sent with no-cors fallback (cannot verify success)');
+                    return true; // Assume success since we can't verify
+                } catch (fallbackError) {
+                    console.error('❌ Fallback also failed:', fallbackError);
+                    return false;
+                }
+            }
             console.error('❌ Error sending to Slack:', error);
             return false;
         }
