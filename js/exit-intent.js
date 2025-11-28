@@ -107,10 +107,12 @@
         };
         
         try {
-            // Try sending without Content-Type header to avoid CORS preflight
-            // This makes it a "simple request" that might bypass CORS restrictions
+            // Send with proper Content-Type header for JSON
             const response = await fetch('https://hooks.slack.com/services/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', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(message)
             });
             
@@ -136,6 +138,7 @@
             if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
                 console.error('❌ CORS error: Slack webhook blocked by browser. Consider using a backend proxy.');
                 // Try fallback: send with no-cors mode (won't verify success but might work)
+                // Note: no-cors mode doesn't allow custom headers, so Content-Type will be missing
                 try {
                     await fetch('https://hooks.slack.com/services/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', {
                         method: 'POST',
